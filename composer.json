@@ -6,6 +6,6 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "autoload": {
-    "psr-0": {"DennisDigital\\Monetizer101": "src/"}
+    "psr-0": {"DennisDigital\\Behat\\Monetizer101": "src/"}
   }
 }

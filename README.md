@@ -1,6 +1,6 @@
-# monetizer101context
+# Monetizer101 Behat Context
 
-monetizer101 enables and disables monetizer101 block before and after each scenario. 
+This context allows to enable/disable monetizer101 block before and after each scenario. 
 
 ## Usage
 

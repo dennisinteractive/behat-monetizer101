@@ -5,7 +5,11 @@
   "license": "GPL-2.0+",
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "require": {
+    "behat/mink":   "~1.5"
+  },
   "autoload": {
-    "psr-4": {"DennisDigital\\Behat\\Monetizer101\\": "src"}
+    "psr-4": {"DennisDigital\\Behat\\Monetizer101\\": "src"},
+    "psr-0": { "Behat\\MinkExtension": "src/" }
   }
 }

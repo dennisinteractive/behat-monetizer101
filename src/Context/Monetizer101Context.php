@@ -35,8 +35,6 @@ class Monetizer101Context implements DrupalAwareInterface {
    */
   private $enabledChanged;
 
-
-
   /**
    * @inheritDoc
    */
@@ -49,6 +47,13 @@ class Monetizer101Context implements DrupalAwareInterface {
    */
   public function getDrupal() {
     return $this->drupal;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function setDrupal(DrupalDriverManager $drupal) {
+    $this->drupal = $drupal;
   }
 
   /**
@@ -130,12 +135,5 @@ class Monetizer101Context implements DrupalAwareInterface {
   protected function setVariable($name, $value) {
     $this->drupal->getDriver('drupal');
     return variable_set($name, $value);
-  }
-
-  /**
-   * @inheritDoc
-   */
-  public function setDrupal(DrupalDriverManager $drupal) {
-    $this->drupal = $drupal;
   }
 }

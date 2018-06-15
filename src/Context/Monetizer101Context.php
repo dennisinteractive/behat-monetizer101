@@ -6,6 +6,7 @@ use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Testwork\Hook\HookDispatcher;
 use Drupal\DrupalDriverManager;
 use Drupal\DrupalExtension\Context\DrupalAwareInterface;
+use Drupal\DrupalUserManagerInterface;
 
 class Monetizer101Context implements DrupalAwareInterface {
 
@@ -55,7 +56,18 @@ class Monetizer101Context implements DrupalAwareInterface {
   public function setDrupal(DrupalDriverManager $drupal) {
     $this->drupal = $drupal;
   }
-
+  
+  /**
+   * @inheritdoc
+   */
+  public function setUserManager(DrupalUserManagerInterface $userManager) {
+  }
+  /**
+   * @inheritdoc
+   */
+  public function getUserManager() {
+  }
+  
   /**
    * @inheritDoc
    */

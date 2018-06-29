@@ -1,12 +1,8 @@
 <?php
 namespace DennisDigital\Behat\Monetizer101\Context;
 
-use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
-use Behat\Testwork\Hook\HookDispatcher;
-use Drupal\DrupalDriverManager;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
-use Drupal\DrupalUserManagerInterface;
 
 class Monetizer101Context extends RawDrupalContext {
   /**

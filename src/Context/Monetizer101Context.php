@@ -1,26 +1,10 @@
 <?php
 namespace DennisDigital\Behat\Monetizer101\Context;
 
-use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
-use Behat\Testwork\Hook\HookDispatcher;
-use Drupal\DrupalDriverManager;
-use Drupal\DrupalExtension\Context\DrupalAwareInterface;
+use Drupal\DrupalExtension\Context\RawDrupalContext;
 
-class Monetizer101Context implements DrupalAwareInterface {
-
-  /**
-   * @var DrupalDriverManager
-   */
-  private $drupal;
-
-  /**
-   * The environment obtained for the before scenario scope.
-   *
-   * @var BeforeScenarioScope
-   */
-  private $environment;
-
+class Monetizer101Context extends RawDrupalContext {
   /**
    * Whether monetizer block should be on or off by default.
    *
@@ -34,44 +18,6 @@ class Monetizer101Context implements DrupalAwareInterface {
    * @var bool
    */
   private $enabledChanged;
-
-  /**
-   * @inheritDoc
-   */
-  public function setDispatcher(HookDispatcher $dispatcher) {
-    // TODO: Implement setDispatcher() method.
-  }
-
-  /**
-   * @inheritDoc
-   */
-  public function getDrupal() {
-    return $this->drupal;
-  }
-
-  /**
-   * @inheritDoc
-   */
-  public function setDrupal(DrupalDriverManager $drupal) {
-    $this->drupal = $drupal;
-  }
-
-  /**
-   * @inheritDoc
-   */
-  public function setDrupalParameters(array $parameters) {
-    // TODO: Implement setDrupalParameters() method.
-  }
-
-  /**
-   * @BeforeScenario
-   *
-   * @param BeforeScenarioScope $scope
-   */
-  public function beforeScenario(BeforeScenarioScope $scope) {
-    // Keep the environment available.
-    $this->environment = $scope->getEnvironment();
-  }
 
   /**
    * @AfterScenario
@@ -125,7 +71,7 @@ class Monetizer101Context implements DrupalAwareInterface {
    * Get a drupal variable.
    */
   protected function getVariable($name) {
-    $this->drupal->getDriver('drupal');
+    $this->getDrupal()->getDriver('drupal');
     return variable_get($name);
   }
 
@@ -133,7 +79,7 @@ class Monetizer101Context implements DrupalAwareInterface {
    * Set a drupal variable.
    */
   protected function setVariable($name, $value) {
-    $this->drupal->getDriver('drupal');
+    $this->getDrupal()->getDriver('drupal');
     return variable_set($name, $value);
   }
 }
